@@ -42,7 +42,7 @@ var timeRange = [{
 
 
 var timeCheck = function() {
-    //currentTime = moment.format("hA");
+    //currentTime = moment().format("hA");
     currentTime = "1PM";
     for (i = 0; i<timeRange.length; i++) {
         if (currentTime === timeRange[i].hour) {
