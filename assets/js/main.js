@@ -2,6 +2,7 @@
 var date = moment().format("dddd, MMMM Do");
 currentDay = $("#currentDay").append(date);
 
+//set up array of business hours and index
 var timeRange = [{
         hour: "9AM",
         index: 0
@@ -40,7 +41,7 @@ var timeRange = [{
     }
 ];
 
-
+//check current time
 var timeCheck = function() {
     currentTime = moment().format("hA");
     for (i = 0; i<timeRange.length; i++) {
@@ -48,18 +49,18 @@ var timeCheck = function() {
             currentIndex = timeRange[i].index;
             for (j = 0; j<timeRange.length; j++) {
                 loopedIndex = timeRange[j].index;
+                //if hour is in future turn green
                 if (loopedIndex > currentIndex) {
-                    //add past class
                     $("#"+j).removeClass("past");
                     $("#"+j).removeClass("present");
                     $("#"+j).addClass("future");
+                //if hour is current turn red
                 }if (loopedIndex === currentIndex) {
-                    //add current class
                     $("#"+j).removeClass("past");
                     $("#"+j).removeClass("future");
                     $("#"+j).addClass("present");
+                //if hour is past turn gray
                 }else if (loopedIndex < currentIndex) {
-                    //add future class
                     $("#"+j).removeClass("present");
                     $("#"+j).removeClass("future");
                     $("#"+j).addClass("past");
@@ -70,9 +71,6 @@ var timeCheck = function() {
 };
 timeCheck();
 
-
-//write click jquery function for the save button
-
 //write a save function to local storage
 var saveEvents = function() {
     for (i=0; i<timeRange.length; i++) {
@@ -81,25 +79,20 @@ var saveEvents = function() {
         eventText = updateText;
         localStorage.setItem("event"+i, JSON.stringify(eventText));
     };
-    //localStorage.setItem("task", JSON.stringify());
 };
 
+//write a load function for every time the page is refreshed
 var loadEvents = function() {
     for (i=0; i<timeRange.length; i++) {
         loadedEvent = localStorage.getItem("event"+i);
         loadedEvent = JSON.parse(loadedEvent);
         $('textarea')[i].textContent = loadedEvent;
-        //eventText = $('textarea')[i].textContent;
-        //eventText = loadedEvent;
-        //console.log(eventText);
     }
 }
 loadEvents();
 
+//adds save to save button
 $(".btn-s").click(saveEvents);
 
-//write a load function from local storage
-
-//write a function that continues to recall the timeCheck function
-
+//continues to recall the timeCheck function
 setInterval(timeCheck, 15000);

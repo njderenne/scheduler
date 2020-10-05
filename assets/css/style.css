@@ -43,6 +43,7 @@ textarea{
   border-top: 1px dashed #000000;
   /* added this right border */
   border-right: 1px solid black;
+  padding-right: 5px;
   text-align: right;
 }
 
