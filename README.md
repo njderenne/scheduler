@@ -15,19 +15,19 @@ When the application is ran the user will be presented with a hour by hour forma
 </br>
 </br>
 
-![Scheduler Home Page]()
+![Scheduler Home Page](https://github.com/njderenne/scheduler/blob/main/assets/images/Capture1.PNG?raw=true)
 
 ### Saving Current Schedule
 
 </br>
 </br>
 
-![Saving Current Schedule]()
+![Saving Current Schedule](https://github.com/njderenne/scheduler/blob/main/assets/images/Capture2.PNG?raw=true)
 
 
 ## Link to Deployed Application
 
-
+https://njderenne.github.io/scheduler/
 
 ## The Team
 
